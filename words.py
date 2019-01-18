@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# shebang is the absolute path to the Bash interpreter
 import sys
 from urllib.request import urlopen
 
