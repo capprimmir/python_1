@@ -1,9 +1,14 @@
 import sys
 from urllib.request import urlopen
 
+# docs can be acces by help(function_name)
 def fetch_words(url):
-	# 'http://sixty-north.com/c/t.txt'
-	# change to accept an url instead of passing the string
+	"""Fetch a list of words from a URL.
+
+	Args: url: the url of a text document 
+	
+	Returns: a list fo strings contained in the url text
+	"""
 	with urlopen(url) as story:
 		story_words = []
 		for line in story:
@@ -11,10 +16,16 @@ def fetch_words(url):
 			for word in line_words:
 				story_words.append(word)
 	return story_words
-				
-def print_words(story_words):				
+
+
+def print_words(story_words):
+	"""Print items one per line
+	
+	Args: a list / iterable series of items
+	"""				
 	for word in story_words:
 		print(word)
+
 
 def main(url):
 	# url = sys.argv[1] -- will cause error
