@@ -1,18 +1,26 @@
-# refactor code to have a function and add __name__ to be able to execute 
-# as script directly from REPL
+import sys
 from urllib.request import urlopen
 
-def fecth_words():
-	with urlopen('http://sixty-north.com/c/t.txt') as story:
+def fetch_words(url):
+	# 'http://sixty-north.com/c/t.txt'
+	# change to accept an url instead of passing the string
+	with urlopen(url) as story:
 		story_words = []
 		for line in story:
 			line_words = line.decode('utf-8').split()
 			for word in line_words:
 				story_words.append(word)
+	return story_words
 				
+def print_words(story_words):				
 	for word in story_words:
 		print(word)
 
-# _ _ name _ _ detects if modules is runing as script or imported into another module
+def main(url):
+	# url = sys.argv[1] -- will cause error
+	words = fetch_words(url)
+	print_words(words)
+
+
 if __name__ == '__main__':
-	fecth_words()
+	main(sys.argv[1])
