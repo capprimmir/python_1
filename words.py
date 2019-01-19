@@ -3,7 +3,7 @@
 import sys
 from urllib.request import urlopen
 
-# docs can be acces by help(function_name)
+# docs can be acces by help(functiclearon_name)
 def fetch_words(url):
 	"""Fetch a list of words from a URL.
 

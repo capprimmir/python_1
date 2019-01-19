@@ -1,2 +1,5 @@
 # ignore a single file 
 words.cpython-37.pyc
+
+# ignore folder
+__pycache__
