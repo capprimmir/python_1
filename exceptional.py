@@ -1,9 +1,12 @@
 '''Module for demonstrate exceptions'''
+
+import sys
+
 def convert(s):
-    x = -1
+    '''convert to an integer'''
     try:
-        x = int(s)
+        return int(s)
         print("Conversion sucessful! x= ", x)
-    except (ValueError, TypeError):
-        print("Incorrect value!")
-    return x
+    except (ValueError, TypeError) as e:
+        print("Conversion Error: {}".format(str(e)),file=sys.stderr)
+        return -1
